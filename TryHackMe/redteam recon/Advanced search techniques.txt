@@ -1,0 +1,102 @@
+Advanced search techniques
+
+"search phrase" 							- finds results with exact search phrase
+OSINT filetype:pdf  						- find files of PDF related to a certain term
+salary site:blog.tryhackme.com			- limit search results to a specific site
+pentest -site:example.com				- exclude a specific site from results
+walkthorugh intitle:TryHackMe			- find pages with a specific term in the page title
+challenge inurl:tryhackme				- find pages with a specific in the page url
+
+more info at: https://www.exploit-db.com/google-hacking-database
+
+
+#	Google Dork Query	Explanation
+1	filetype:pdf password	Searches for PDF files containing the word “password”.
+2	intitle:index.of password.txt	Searches for websites with “index.of” in the title and the word “password.txt”.
+3	intext:”username” filetype:xls	Searches for Excel files containing the word “username”.
+4	intext:”email” filetype:pdf	Searches for PDF files containing the word “email”.
+5	inurl:admin login	Searches for webpages with “admin” and “login” in the URL.
+6	intitle:”Login page” “Username” “Password”	Searches for pages with the title “Login page”, “Username”, and “Password”.
+7	inurl:login intext:”password”	Searches for pages with “login” in the URL and the word “password” in the text.
+8	inurl:.php?id=	Searches for pages containing “.php?id=” in the URL.
+9	intitle:”SQL query failed” intext:”mysql”	Searches for pages with the title “SQL query failed” and the word “mysql” in the text.
+10	site:.edu filetype:pdf	Searches for PDF files on “.edu” websites.
+11	intext:”Private Key” filetype:pem	Searches for files with “Private Key” in the text and the file type “pem”.
+12	intitle:”Index of /” +passwd	Searches for websites with “Index of /” in the title and the word “passwd”.
+13	intitle:”Index of /” +secret	Searches for websites with “Index of /” in the title and the word “secret”.
+14	intext:”Confidential” filetype:ppt	Searches for PowerPoint files with the word “Confidential” in the text.
+15	intext:”Database Error” intitle:”Warning”	Searches for pages with the text “Database Error” and the title “Warning”.
+16	intext:”PHP Script” “Debug”	Searches for pages with the text “PHP Script” and the word “Debug”.
+17	intext:”to=python” filetype:py	Searches for Python files with the text “to=python”.
+18	intext:”API Key” filetype:yml	Searches for YAML files with the text “API Key”.
+19	intext:”API Key” filetype:env	Searches for environment files with the text “API Key”.
+20	intext:”Private Key” filetype:key	Searches for files with the text “Private Key” and the file type “key”.
+21	intext:”System Information” filetype:log	Searches for log files with the text “System Information”.
+22	intitle:”Index of /” +backup	Searches for websites with “Index of /” in the title and the word “backup”.
+24	intext:”username” intitle:”config”	Searches for pages with the text “username” and the title “config”.
+25	intext:”Password” intitle:”Settings”	Searches for pages with the text “Password” and the title “Settings”.
+26	intext:”password” intitle:”configuration”	Searches for pages with the text “password” and the title “configuration”.
+27	intext:”secret” intitle:”config”	Searches for pages with the text “secret” and the title “config”.
+28	intext:”API Key” intitle:”documentation”	Searches for pages with the text “API Key” and the title “documentation”.
+29	intext:”server_name” filetype:nginx	Searches for Nginx configuration files with the text “server_name”.
+30	intext:”database_password” filetype:env	Searches for environment files with the text “database_password”.
+31	intext:”API Key” intitle:”Readme”	Searches for pages with the text “API Key” and the title “Readme”.
+32	intext:”ssh” intitle:”authorized_keys”	Searches for pages with the text “ssh” and the title “authorized_keys”.
+33	intext:”AWS Key” intitle:”Credentials”	Searches for pages with the text “AWS Key” and the title “Credentials”.
+34	intext:”AWS Access Key” intitle:”Settings”	Searches for pages with the text “AWS Access Key” and the title “Settings”.
+35	intext:”api_key” intitle:”Settings”	Searches for pages with the text “api_key” and the title “Settings”.
+36	intext:”access_token” intitle:”config”	Searches for pages with the text “access_token” and the title “config”.
+37	intext:”client_secret” intitle:”config”	Searches for pages with the text “client_secret” and the title “config”.
+38	intext:”private_key” intitle:”documentation”	Searches for pages with the text “private_key” and the title “documentation”.
+39	intext:”master_key” intitle:”documentation”	Searches for pages with the text “master_key” and the title “documentation”.
+40	intext:”db_password” intitle:”config”	Searches for pages with the text “db_password” and the title “config”.
+41	intext:”ftp_password” intitle:”config”	Searches for pages with the text “ftp_password” and the title “config”.
+42	intext:”root_password” intitle:”config”	Searches for pages with the text “root_password” and the title “config”.
+43	intext:”sql_password” intitle:”config”	Searches for pages with the text “sql_password” and the title “config”.
+44	intext:”jwt_secret” intitle:”config”	Searches for pages with the text “jwt_secret” and the title “config”.
+45	intext:”secret_key” intitle:”config”	Searches for pages with the text “secret_key” and the title “config”.
+46	intext:”encryption_key” intitle:”config”	Searches for pages with the text “encryption_key” and the title “config”.
+47	intext:”key” intitle:”ssh_config”	Searches for pages with the text “key” and the title “ssh_config”.
+48	intext:”password” filetype:env	Searches for environment files with the text “password”.
+49	intext:”api_key” filetype:env	Searches for environment files with the text “api_key”.
+50	intext:”secret_key” filetype:env	Searches for environment files with the text “secret_key”.
+51	intext:”password” filetype:yaml	Searches for YAML configuration files with the text “password”.
+52	intext:”api_key” filetype:yaml	Searches for YAML configuration files with the text “api_key”.
+53	intext:”secret_key” filetype:yaml	Searches for YAML configuration files with the text “secret_key”.
+54	intext:”password” filetype:json	Searches for JSON configuration files with the text “password”.
+55	intext:”api_key” filetype:json	Searches for JSON configuration files with the text “api_key”.
+56	intext:”secret_key” filetype:json	Searches for JSON configuration files with the text “secret_key”.
+57	intext:”password” filetype:xml	Searches for XML configuration files with the text “password”.
+58	intext:”api_key” filetype:xml	Searches for XML configuration files with the text “api_key”.
+59	intext:”secret_key” filetype:xml	Searches for XML configuration files with the text “secret_key”.
+60	intext:”ssh” intitle:”id_rsa”	Searches for pages with the text “ssh” and the title “id_rsa”.
+61	intext:”ssh” intitle:”id_dsa”	Searches for pages with the text “ssh” and the title “id_dsa”.
+62	intext:”private_key” intitle:”ssh”	Searches for pages with the text “private_key” and
+62	intitle:”Index of /” +”parent directory” +description +size +last modified +”Apache” +”Windows”	Same as above, but for Windows-based servers.
+63	intitle:”Index of /” +”parent directory” +description +size +last modified +”Microsoft-IIS” +”Unix”	Same as above, but for Microsoft IIS servers on Unix-based systems.
+64	intitle:”Index of /” +”parent directory” +description +size +last modified +”Microsoft-IIS” +”Windows”	Same as above, but for Microsoft IIS servers on Windows-based systems.
+65	intitle:”Index of /” +”parent directory” +description +size +last modified +”Nginx” +”Unix”	Same as above, but for Nginx servers on Unix-based systems.
+66	intitle:”Index of /” +”parent directory” +description +size +last modified +”Nginx” +”Windows”	Same as above, but for Nginx servers on Windows-based systems.
+67	inurl:backup	Searches for pages containing the word “backup”, often revealing sensitive backup files and directories.
+68	inurl:backup filetype:sql	Searches for SQL backup files.
+69	inurl:backup filetype:bak	Searches for files with the .bak extension, often revealing backup files.
+70	inurl:backup filetype:tar	Searches for tar archive files, often containing backup data.
+71	inurl:backup filetype:gz	Searches for gzip-compressed files, often containing backup data.
+72	inurl:config.php	Searches for pages containing the phrase “config.php”, often revealing sensitive configuration files.
+73	inurl:wp-config.php	Searches for pages containing the phrase “wp-config.php”, often revealing sensitive WordPress configuration files.
+74	inurl:database.php	Searches for pages containing the phrase “database.php”, often revealing sensitive database configuration files.
+75	inurl:error_log	Searches for pages containing the phrase “error_log”, often revealing sensitive error logs.
+76	inurl:access_log	Searches for pages containing the phrase “access_log”, often revealing sensitive access logs.
+77	inurl:phpinfo.php	Searches for pages containing the phrase “phpinfo.php”, often revealing sensitive PHP information.
+78	inurl:server-status	Searches for pages containing the phrase “server-status”, often revealing sensitive server information.
+79	inurl:phpmyadmin	Searches for pages containing the phrase “phpmyadmin”,often revealing sensitive PHPMyAdmin information.
+
+filetype:pem	Searches for PEM certificate files.
+filetype:cer	Searches for certificate files with the .cer extension.
+filetype:key	Searches for encryption key files.
+filetype:ppk	Searches for PuTTY private key files.
+filetype:pfx	Searches for PKCS #12 certificate files.
+filetype:asc	Searches for ASCII armored PGP or GPG files.
+filetype:crt	Searches for certificate files with the .crt extension.
+filetype:csr	Searches for certificate signing request files.
+filetype:der	Searches for binary DER certificate files.
