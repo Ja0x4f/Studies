@@ -1,0 +1,96 @@
+- whois
+
+   "WHOIS is a TCP-based transaction-oriented query/response protocol
+   that is widely used to provide information services to Internet
+   users.  While originally used to provide "white pages" services and
+   information about registered domain names, current deployments cover
+   a much broader range of information services.  The protocol delivers
+   its content in a human-readable format.  This document updates the
+   specification of the WHOIS protocol, thereby obsoleting RFC 954 [1]".
+   
+   https://www.ietf.org/rfc/rfc3912.txt
+   
+The domain Register is responsible for maintaining the WHOIS records for the domain names it is leasing. whois will query the WHOIS server to provide all saved records. In the following example, we can see whois provides us with:
+
+Register WHOIS server
+Register URL
+Record creation date
+Record update date
+Registrant contact info and address (unless withheld for privacy)
+Admin contact info and address (unless withheld for privacy)
+Tech contact info and address (unless withheld for privacy)
+
+
+e.g.
+
+@linux ➜ ~  whois thmredteam.com
+   Domain Name: THMREDTEAM.COM
+   Registry Domain ID: 2643258257_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.namecheap.com
+   Registrar URL: http://www.namecheap.com
+   Updated Date: 2022-09-26T15:22:32Z
+   Creation Date: 2021-09-24T14:04:16Z
+   Registry Expiry Date: 2023-09-24T14:04:16Z
+   Registrar: NameCheap, Inc.
+   Registrar IANA ID: 1068
+   Registrar Abuse Contact Email: abuse@namecheap.com
+   Registrar Abuse Contact Phone: +1.6613102107
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Name Server: KIP.NS.CLOUDFLARE.COM
+   Name Server: UMA.NS.CLOUDFLARE.COM
+   DNSSEC: unsigned
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of whois database: 2023-03-28T17:07:24Z <<<
+.
+.
+.
+<EOF>
+
+##################
+
+- nslookup
+
+DNS queries can be executed with many different tools found on our systems, especially Unix-like systems. One common tool found on Unix-like systems, Windows, and macOS is nslookup. In the following query, we can see how nslookup uses the default DNS server to get the A and AAAA records related to our domain.
+
+@linux ➜ ~  nslookup cafe.thmredteam.com
+Server:		127.0.0.53
+Address:	127.0.0.53#53
+
+Non-authoritative answer:
+Name:	cafe.thmredteam.com
+Address: 104.21.93.169
+Name:	cafe.thmredteam.com
+Address: 172.67.212.249
+Name:	cafe.thmredteam.com
+Address: 2606:4700:3034::ac43:d4f9
+Name:	cafe.thmredteam.com
+Address: 2606:4700:3034::6815:5da9
+
+<EOF>
+
+
+- dig
+
+more info about dns resolution using dig, check on Crowsec course.
+
+@linux ➜ ~  dig cafe.thmredteam.com @1.1.1.1
+
+; <<>> DiG 9.18.13 <<>> cafe.thmredteam.com @1.1.1.1
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 28563
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; QUESTION SECTION:
+;cafe.thmredteam.com.		IN	A
+
+;; ANSWER SECTION:
+cafe.thmredteam.com.	300	IN	A	172.67.212.249
+cafe.thmredteam.com.	300	IN	A	104.21.93.169
+
+;; Query time: 221 msec
+;; SERVER: 1.1.1.1#53(1.1.1.1) (UDP)
+;; WHEN: Tue Mar 28 14:11:41 -03 2023
+;; MSG SIZE  rcvd: 80

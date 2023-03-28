@@ -1,0 +1,13 @@
+Reconnaissance (recon) can be defined as a preliminary survey or observation of your target (client) without alerting them to your activities. If your recon activities create too much noise, the other party would be alerted, which might decrease the likelihood of your success.
+
+The tasks of this room cover the following topics:
+
+Types of reconnaissance activities
+WHOIS and DNS-based reconnaissance
+Advanced searching
+Searching by image
+Google Hacking
+Specialized search engines
+Recon-ng
+Maltego
+

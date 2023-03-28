@@ -1,0 +1,18 @@
+Recon can be both passive and active.
+
+Passive -> we are not sending any packages to the target. It's made upon publicly available information that is collected and maintained by a third party (OSINT)
+Examples: 
+- Domain names
+- IP address blocks
+- Email addresses
+- Employee names
+- Job posts
+
+# Check - https://tryhackme.com/room/passiverecon
+
+Active recon can be classified as:
+
+External Recon: Conducted outside the target's network and focuses on the externally facing assets assessable from the Internet. One example is running Nikto from outside the company network.
+Internal Recon: Conducted from within the target company's network. In other words, the pentester or red teamer might be physically located inside the company building. In this scenario, they might be using an exploited host on the target's network. An example would be using Nessus to scan the internal network using one of the target’s computers.
+
+
