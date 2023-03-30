@@ -1,0 +1,52 @@
+recon-ng basics
+
+
+- create a workspace for the project
+- insert the starting infos into the database
+- search the marketplace for a module and learn abt it b4 installing
+- list the installed modules and load one
+- run the loaded module
+
+
+
+
+-- To create a new workspace
+workspaces create WORSPACE_NAME
+
+-- To start recon-ng with the specific workspace
+recon-ng -w WORKSPACE_NAME
+
+-- To feed domains inside the Recon-ng database related to the active workspace
+db insert domains
+
+for example
+
+[recon-ng][vulnweb] > db insert domains
+domain (TEXT): vulnweb.com
+notes (TEXT):
+[*] 1 rows affected.
+
+
+-- Recon-ng marketplace useful commands
+
+marketplace search KEYWORD - to search for available modules with keyword.
+marketplace info MODULE - to provide information about the module in question.
+marketplace install MODULE - to install the specified module into Recon-ng.
+marketplace remove MODULE - to uninstall the specified module.
+
+marketplace search domains-
+
+[output ommited]
+
+Some modules, like whoxy_whois, require a key, as we can tell from the * under the K column. This requirement indicates that this module is not usable unless we have a key to use the related service.
+
+-- Installing a module
+
+marketplace install recon/domains-hosts/google_site_web
+
+-- Working with installed modules
+
+modules search - to get a list of all the installed modules
+modules load MODULE - to load a specific module to memory
+
+
