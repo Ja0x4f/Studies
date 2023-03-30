@@ -1,0 +1,17 @@
+site:"whirlpool.com" inurl:"url="
+
+intext:"index of" ".git" 
+
+# Ideas
+
+- create a dork to get public profiles 
+AND
+site:facebook.com & site:twitter.com
+
+=====
+
+
+## Get drive storage
+
+(site:sync.com | site:pcloud.com | site:icedrive.net | site:mega.io | site:drive.google.com | site:onedrive.live.com | site:dropbox.com | site:koofr.eu | site:filen.io | site:jumpshare.com | site:opendrive.com | site:amazon.com | site:securesafe.com | site:icloud.com) intext:whirlpool
+
