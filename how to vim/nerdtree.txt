@@ -1,0 +1,16 @@
+:NERDTree - it will open the nerdtree
+
+nerdtree is like an vim page, we can move between them using ctrl+ww and so on
+
+we can also select the file needed and use "s" to split it
+
+we can use "t" in the selected file to open it in another tab
+to navigate between tabs, it's used "gt"
+
+ctrl + n - auto complete function
+
+hjkl to navigate
+
+
+this is just an example file
+it has been used to test nerdtree commands and navigation between files

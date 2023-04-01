@@ -1,0 +1,92 @@
+# Vim basics
+
+Plugin manager:
+https://github.com/tpope/vim-pathogen
+
+##
+
+
+shift + v - enter in the line selection mode
+ctrl + v - enter in the block visual mode
+
+h - left
+j - down
+k - up
+l - right
+
+important: \ is the escape character in the command mode!
+
+u - undone
+ctrl + r - "undone" the undone
+
+shift + o - it will create a new line above the line
+o - insert mode + new line 
+
+shift + a - will go to the end of the line
+shift + i - will go to the start of the line
+
+[
+substitution
+:%s/<before>/<after>/<options>
+options: g - global; c - choose
+
+:%s/ul/nav/g
+this will substitute all "ul" with "nav", globally.
+
+:%s/<li>//gc 
+will substitute all <li> with nothing, globally
+]
+
+dd - delete the entire line
+
+x - cut the selected character/line
+
+== - indent the line
+
+y - copy the selected character / line
+p - paste what has been copied
+
+gg - go to the top of the file
+shift + g - go to the end of the file
+
+/<word> - will search for something
+n - will go to the next file found
+ctrl + n - will go to the previous file found
+
+:vs <file path> - it will split a file vertically 
+:sp <file path> - it will split a file horizontally 
+
+to close a tab, you need to use ":q"
+ctrl + ww - to navigate between the files
+ctrl + w and h,j,k,l - it will navigate in the direction appointed
+
+recording{
+
+q+<any letter to copy on letter> - start recording
+all commands to repeat
+q - to stop recording
+
+to play the record, just use @<letter>
+
+}
+
+
+
+regular expressions
+\d --> any digit
+
+\(\) -> it group something, that can be used later
+e.g.
+:%s/figura-\(\d\)/figureee-\(\d\)/g
+it will globally substitute the figura-? for figureee-?, keeping the <?> value
+
+. -> mean any character
+\{-} -> repeat the character until get the other one that exists (on the example case, is the double quotes)
+:%s/figura-"\(.\{-} \):-depoimentos/figure-"\1"-testimonies/gc
+
+"#figure-"+id_ativo+"-testimonies"
+"#botao-"+id_ativo+"-depoimentos"
+
+:%s/botao-"\(.\{-}\)"-depoimentos/button-"\1"-testimonies/gc
+
+it will globally replace everything outside the double quotes ( "\(.\{-}\)" is the group that will be kept and saved on "\1"
