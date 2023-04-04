@@ -1,0 +1,40 @@
+The Machine Code
+
+
+A high level language is a human readable language, like PHP, Python, Java, etc. But it's not recognized by the computer.
+The computer understand what is called "the machine code", like functions and instructions such as sum, keep, diff, etc.
+
+For example:
+
+An JavaScript code:
+
+let a = 7;
+let b = 2;
+let c = a + b;
+if (c !== 0){
+  c++;
+}
+
+----------------------
+
+A machine code:
+
+set 7 in "a"
+set 2 in "b"
+take a
+sum b
+set in "c"
+compair c and 0
+if_equal_jump 1 line
+add c
+
+----------------------
+
+What we understand: print(2+2) --> source code
+What the machine understand: 001010000111010100110101000 --> the machine code (this is just an example ok?)
+
+This traduction is done by the compiler, like gcc in C language.
+
+# But what's the difference between an compiler and a interpreter?
+The interpreted program is faster to edit and execute, because it's not needed to compile the source code. 
+But the compiled programs are faster
