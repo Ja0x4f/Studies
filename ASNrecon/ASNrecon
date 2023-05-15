@@ -1,0 +1,31 @@
+FILE=$1
+TARGET_NAME=$2
+
+echo -e "[Starting ASN Recon]\n"
+
+for ASN in $(cat $FILE); do
+    echo -n "At $ASN"
+    whois -h whois.radb.net -- '-i origin '$ASN | grep -Eo "([0-9.]+){4}/[0-9]+" | sort -u | anew iprange_$TARGET_NAME.txt >> /dev/null
+    echo " - OK"
+done
+echo "First stage of ASN recon completed."
+sleep 3
+echo "`cat iprange_$TARGET_NAME.txt | sort -u | wc -l` IP Adddresses found."
+sleep 3
+
+echo "Starting stage 2."
+sleep 3
+
+for IPAddr in $(cat iprange_$TARGET_NAME.txt); do  
+    echo -n "Resolving $IPAddr"
+    echo $IPAddr | mapcidr -silent | dnsx -ptr -t 50 -silent >> resolved_$TARGET_NAME.txt
+    echo " - OK"
+done
+
+echo "Using httpx on results"
+sleep 5
+
+cat resolved_$TARGET_NAME.txt | sort -u | anew asn_results.txt >> /dev/null
+cat asn_results.txt | httpx -silent -o "200results.txt"
+
+echo -e "\n[ASN Recon finished]"
