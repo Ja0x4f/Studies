@@ -6,10 +6,9 @@ The function usort is often used with the function create_function to dynamicall
 
 By injecting a single quote, we can get an idea of what is going on:
 
+```php
 Parse error: syntax error, unexpected '',$b->id'' (T_CONSTANT_ENCAPSED_STRING) in /var/www/index.php(29) : 
 runtime-created function on line 1
-
-```
 Warning: usort() expects parameter 2 to be a valid callback, no array or string given in /var/www/index.php
  on line 29
 ```
